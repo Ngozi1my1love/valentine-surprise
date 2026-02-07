@@ -147,7 +147,7 @@ function sendEmailNotification() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            message: 'She said YES! 💕',
+            message: 'Rachael said YES and listened to your song. She claims your voice is splendid😌👌👨‍🎤 💕',
             timestamp: new Date().toLocaleString()
         })
     }).then(response => {
