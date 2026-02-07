@@ -31,13 +31,13 @@ yesBtn.addEventListener('click', function() {
 // Function to send email notification
 function sendEmailNotification() {
     // We'll use Formspree for this - you'll add your email endpoint here
-    fetch('YOUR_FORMSPREE_ENDPOINT', {
+    fetch('https://formspree.io/f/mgoleyln', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            message: 'She said YES! 💕',
+            message: 'Ngozi said YES! 💕',
             timestamp: new Date().toLocaleString()
         })
     }).then(response => {
