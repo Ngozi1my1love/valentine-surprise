@@ -3,17 +3,31 @@ const noBtn = document.getElementById('noBtn');
 const questionContainer = document.getElementById('questionContainer');
 const successContainer = document.getElementById('successContainer');
 
-// Make the "No" button run away from the mouse
-noBtn.addEventListener('mouseenter', function() {
-    const maxX = window.innerWidth - noBtn.offsetWidth - 100;
-    const maxY = window.innerHeight - noBtn.offsetHeight - 100;
+// Function to move the "No" button away
+function moveNoButton() {
+    const maxX = window.innerWidth - noBtn.offsetWidth - 50;
+    const maxY = window.innerHeight - noBtn.offsetHeight - 50;
     
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
+    const randomX = Math.max(20, Math.floor(Math.random() * maxX));
+    const randomY = Math.max(20, Math.floor(Math.random() * maxY));
     
     noBtn.style.position = 'fixed';
     noBtn.style.left = randomX + 'px';
     noBtn.style.top = randomY + 'px';
+}
+
+// Make the "No" button run away on mouse hover (desktop)
+noBtn.addEventListener('mouseenter', moveNoButton);
+
+// Make the "No" button run away on touch/click attempt (mobile)
+noBtn.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    moveNoButton();
+});
+
+noBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    moveNoButton();
 });
 
 // When "Yes" is clicked
